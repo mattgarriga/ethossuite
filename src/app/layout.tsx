@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { UserMenu } from "@/components/user-menu";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 priority
               />
             </Link>
+            <UserMenu />
           </div>
         </header>
         <div className="flex-1">{children}</div>
