@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
+/* Ethos brand tokens */
+@theme {
+  --color-navy: #1f3864;
+  --color-accent: #2e75b6;
+  --color-line: #bfbfbf;
+  --color-ring-from: #5588f9;
+  --color-ring-to: #5fd0ec;
+  --font-sans: Calibri, Carlito, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+}
+
+/* Two-tone blue gradient ring, the accent motif from the Ethos logo. */
+.ring-motif {
+  background: linear-gradient(135deg, var(--color-ring-to), var(--color-ring-from));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 28px), #000 calc(100% - 27px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 28px), #000 calc(100% - 27px));
 }
