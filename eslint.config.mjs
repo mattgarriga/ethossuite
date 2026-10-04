@@ -16,6 +16,9 @@ const eslintConfig = defineConfig([
     "reference/**",
     // Agent worktrees are full copies of the repo; lint them from inside, not from here.
     ".claude/**",
+    "playwright-report/**",
+    "test-results/**",
+    "coverage/**",
   ]),
 ]);
 
