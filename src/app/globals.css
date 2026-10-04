@@ -1,13 +1,34 @@
 @import "tailwindcss";
 
-/* Ethos brand tokens */
-@theme {
-  --color-navy: #1f3864;
-  --color-accent: #2e75b6;
-  --color-line: #bfbfbf;
-  --color-ring-from: #5588f9;
-  --color-ring-to: #5fd0ec;
-  --font-sans: Calibri, Carlito, "Segoe UI", Helvetica, Arial, sans-serif;
+/* Ethos brand tokens (from the Ethos dashboards). Use the classes, never raw hex. */
+@theme inline {
+  --color-navy: #181b40;
+  --color-navy2: #262f8d;
+  --color-blue2: #3041d3; /* links and focus */
+  --color-blue: #5183ed;
+  --color-cyan: #4cc3ee;
+  --color-paper: #e8eaf5;
+  --color-card: #ffffff;
+  --color-soft: #f1f3fb;
+  --color-hover: #eef1fc;
+  --color-line: #d4d8e6;
+  --color-ink: #0d0d0e;
+  --color-ink2: #454950;
+  --color-mute: #596077;
+  --color-onband: #b9c6ec; /* light text on the navy header band */
+
+  --color-red: #b3261e;
+  --color-redbg: #fce9e8;
+  --color-amber: #8a5d00;
+  --color-amberbg: #fff1cc;
+  --color-green: #1f6e45;
+  --color-greenbg: #e1f4e9;
+
+  --font-sans: var(--font-ubuntu), "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-sora), var(--font-ubuntu), "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --radius-card: 14px;
+  --radius-field: 10px;
 }
 
 :root {
@@ -15,14 +36,50 @@
 }
 
 body {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
-/* Two-tone blue gradient ring, the accent motif from the Ethos logo. */
-.ring-motif {
-  background: linear-gradient(135deg, var(--color-ring-to), var(--color-ring-from));
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 28px), #000 calc(100% - 27px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 28px), #000 calc(100% - 27px));
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* Visible focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-blue2);
+  outline-offset: 2px;
+}
+
+/* Header band: navy gradient with a cyan-to-blue strip underneath. */
+.header-band {
+  background: linear-gradient(120deg, var(--color-navy) 0%, var(--color-navy2) 65%, var(--color-blue2) 100%);
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(90deg, var(--color-cyan), var(--color-blue)) 1;
+}
+/* The blue2 outline is invisible on the dark band, so use cyan there. */
+.header-band :focus-visible {
+  outline-color: var(--color-cyan);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-navy2), var(--color-blue2));
+  color: var(--color-card);
+}
+
+.btn-secondary {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  color: var(--color-navy2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

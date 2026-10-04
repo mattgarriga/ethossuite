@@ -19,7 +19,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
       : undefined;
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl justify-center px-6 py-16">
+    <main className="mx-auto flex w-full max-w-5xl justify-center px-4 py-12 sm:px-6">
       <AuthForm next={next} initialError={initialError} />
     </main>
   );
