@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Read-only material from the internal migrator; never imported by the app.
+    "reference/**",
   ]),
 ]);
 
