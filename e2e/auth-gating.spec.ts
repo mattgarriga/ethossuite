@@ -59,6 +59,7 @@ test.describe("auth and gating (DB-backed)", () => {
 
   test("wrong password shows an error", async ({ page }) => {
     await signIn(page, { email: pub.email, password: "definitely-wrong-password" });
-    await expect(page.getByRole("alert")).toHaveText("Incorrect email or password.");
+    // Filter by text: Next's route announcer also has role="alert".
+    await expect(page.getByRole("alert").filter({ hasText: "Incorrect email or password." })).toBeVisible();
   });
 });
