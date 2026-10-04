@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Read-only material from the internal migrator; never imported by the app.
     "reference/**",
+    // Agent worktrees are full copies of the repo; lint them from inside, not from here.
+    ".claude/**",
   ]),
 ]);
 

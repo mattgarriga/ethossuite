@@ -16,17 +16,17 @@ export default async function ToolPage({ params }: PageProps<"/tools/[slug]">) {
   if (!tool) notFound();
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-6 py-16">
-      <Link href="/" className="text-sm font-semibold text-accent hover:underline">
+    <main className="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6">
+      <Link href="/" className="text-sm font-bold text-blue2 hover:underline">
         &larr; All tools
       </Link>
-      <h1 className="mt-4 text-3xl font-bold text-navy">{tool.name}</h1>
-      {tool.description && (
-        <p className="mt-3 max-w-2xl text-lg text-neutral-700">{tool.description}</p>
-      )}
-      <p className="mt-8 rounded-md border border-line p-4 text-neutral-700">
-        This tool is not live yet.
-      </p>
+      <div className="mt-4 rounded-card border border-line border-t-4 border-t-blue bg-card p-6 sm:p-8">
+        <h1 className="text-3xl font-bold text-navy">{tool.name}</h1>
+        {tool.description && <p className="mt-3 max-w-2xl text-lg text-ink2">{tool.description}</p>}
+        <p className="mt-8 rounded-field border border-line bg-soft p-4 text-ink2">
+          This tool is not live yet.
+        </p>
+      </div>
     </main>
   );
 }
